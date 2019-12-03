@@ -13,6 +13,8 @@ using Microsoft.Extensions.Options;
 using SwaggerOdata.Entities;
 using SwaggerOdata.Persistence.Context;
 using SwaggerOdata.Persistence.Repositories;
+using SwaggerOdata.Services;
+using SwaggerOdata.Services.Ninja;
 
 namespace SwaggerOdata
 {
@@ -34,7 +36,8 @@ namespace SwaggerOdata
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"));
             });
-
+            services.AddScoped<NinjaService, NinjaService>();
+            services.AddScoped<IGenericService<Ninja>, GenericService<Ninja>>();
             services.AddScoped<IGenericRepository<Ninja>, GenericRepository<Ninja>>();
         }
 
