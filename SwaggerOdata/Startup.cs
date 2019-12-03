@@ -10,7 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using SwaggerOdata.Entities;
 using SwaggerOdata.Persistence.Context;
+using SwaggerOdata.Persistence.Repositories;
 
 namespace SwaggerOdata
 {
@@ -32,6 +34,8 @@ namespace SwaggerOdata
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped<IGenericRepository<Ninja>, GenericRepository<Ninja>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
