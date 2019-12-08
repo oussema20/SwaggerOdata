@@ -8,9 +8,9 @@ namespace SwaggerOdata.Services.Ninja
 {
     public class NinjaService :GenericService<SwaggerOdata.Entities.Ninja>
     {
-        public NinjaService(IGenericRepository<SwaggerOdata.Entities.Ninja> repo) : base(repo)
+        public NinjaService(IGenericRepository<SwaggerOdata.Entities.Ninja> genericRepo) : base(genericRepo)
         {
-
+           
         }
     }
 }

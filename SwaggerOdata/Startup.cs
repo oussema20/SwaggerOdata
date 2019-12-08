@@ -30,12 +30,14 @@ namespace SwaggerOdata
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"));
             });
+            
             services.AddScoped<NinjaService, NinjaService>();
             services.AddScoped<IGenericService<Ninja>, GenericService<Ninja>>();
             services.AddScoped<IGenericRepository<Ninja>, GenericRepository<Ninja>>();
