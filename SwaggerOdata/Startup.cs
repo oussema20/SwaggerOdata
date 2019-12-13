@@ -10,7 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using SwaggerOdata.Entities;
 using SwaggerOdata.Persistence.Context;
+using SwaggerOdata.Persistence.Repositories;
+using SwaggerOdata.Services;
 
 namespace SwaggerOdata
 {
@@ -32,6 +35,8 @@ namespace SwaggerOdata
             {
                 Options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"));
+                services.AddScoped<IGenericRepository<Ninja>, GenericRepository<Ninja>>();
+                services.AddScoped<IGenericService<Ninja>, GenericService<Ninja>>();
             });
         }
         
