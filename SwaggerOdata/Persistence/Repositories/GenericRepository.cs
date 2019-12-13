@@ -10,7 +10,10 @@ namespace SwaggerOdata.Persistence.Repositories
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private AppDbContext _context;
-
+        public GenericRepository()
+        {
+            //table = _context.Set<T>();
+        }
         public GenericRepository(AppDbContext context)
         {
             _context = context;
