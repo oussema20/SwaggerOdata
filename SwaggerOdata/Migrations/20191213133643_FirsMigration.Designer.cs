@@ -9,8 +9,8 @@ using SwaggerOdata.Persistence.Context;
 namespace SwaggerOdata.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191210141513_devolop")]
-    partial class devolop
+    [Migration("20191213133643_FirsMigration")]
+    partial class FirsMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
