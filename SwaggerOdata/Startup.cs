@@ -14,6 +14,7 @@ using SwaggerOdata.Entities;
 using SwaggerOdata.Persistence.Context;
 using SwaggerOdata.Persistence.Repositories;
 using SwaggerOdata.Services;
+using SwaggerOdata.Services.Ninja;
 
 namespace SwaggerOdata
 {
@@ -35,9 +36,11 @@ namespace SwaggerOdata
             {
                 Options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"));
+            });
+            services.AddScoped<NinjaService, NinjaService>();
                 services.AddScoped<IGenericRepository<Ninja>, GenericRepository<Ninja>>();
                 services.AddScoped<IGenericService<Ninja>, GenericService<Ninja>>();
-            });
+          
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

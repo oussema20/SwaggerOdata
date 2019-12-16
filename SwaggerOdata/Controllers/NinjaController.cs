@@ -15,12 +15,12 @@ namespace SwaggerOdata.Controllers
         private IGenericService<Ninja> _ninja;
 
         
-        public NinjaController(IGenericService<Ninja> ninja)
+        public NinjaController(IGenericService<SwaggerOdata.Entities.Ninja> ninja)
         { 
              _ninja= ninja ;
         }
         [HttpGet]
-        public async Task<IEnumerable<Ninja>> GetAll()
+        public async Task<IEnumerable<SwaggerOdata.Entities.Ninja>> GetAll()
         {
             var result = await _ninja.GetAll();
             return result;
