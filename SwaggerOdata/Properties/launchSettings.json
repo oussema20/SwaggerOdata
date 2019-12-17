@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/Ninja",
+      "launchUrl": "OData/v1/Ninja",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "SwaggerOdata": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/Ninja",
+      "launchUrl": "OData/v1/Ninja",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
