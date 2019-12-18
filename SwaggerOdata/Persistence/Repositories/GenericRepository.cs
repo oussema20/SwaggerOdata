@@ -23,5 +23,17 @@ namespace SwaggerOdata.Persistence.Repositories
             var rep = await _context.Set<T>().ToListAsync();
             return rep;
         }
+        public void Add(T obj)
+        {
+            _context.Set<T>().Add(obj);
+            _context.SaveChanges();
+
+
+        }
+
+        public void SaveChanges()
+        {
+            //throw new NotImplementedException();
+        }
     }
 }

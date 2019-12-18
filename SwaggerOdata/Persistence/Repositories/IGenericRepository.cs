@@ -8,5 +8,7 @@ namespace SwaggerOdata.Persistence.Repositories
     public interface IGenericRepository<T>where T : class
     {
         Task<IEnumerable<T>> GetAll();
+        void Add(T obj);
+        void SaveChanges();
     }
 }

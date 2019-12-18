@@ -54,6 +54,7 @@ namespace SwaggerOdata
 
 
             var defaultApiVersion = new ApiVersion(1, 0);
+
             services.AddApiVersioning(v =>
             {
                 v.AssumeDefaultVersionWhenUnspecified = true;

@@ -34,5 +34,12 @@ namespace SwaggerOdata.Controllers
             var result = await _ninja.GetAll();
             return result;
         }
+        public IActionResult Post([FromBody] Ninja obj)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+            _ninja.Add(obj);
+            return Ok(obj);
+        }
     }
 }

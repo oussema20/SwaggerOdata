@@ -8,5 +8,6 @@ namespace SwaggerOdata.Services
     public interface IGenericService<T> where T : class
     {
         Task<IEnumerable<T>> GetAll();
+        void Add(T obj);
     }
 }

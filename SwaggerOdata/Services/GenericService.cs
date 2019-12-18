@@ -8,13 +8,19 @@ namespace SwaggerOdata.Services
 {
     public class GenericService<T> : IGenericService<T> where T : class
     {
-        //private IGenericRepository<T> _repo;
+    
         private readonly IGenericRepository<T> _genericRepo;
 
-        //public GenericService(Persistence.Repositories.IGenericRepository<T> repo)
+       
             public GenericService(IGenericRepository<T> genericRepo)
         {
             _genericRepo = genericRepo;
+        }
+
+        public void Add(T obj)
+        {
+            _genericRepo.Add(obj);
+            _genericRepo.SaveChanges();
         }
 
         public async Task<IEnumerable<T>> GetAll()
