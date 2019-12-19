@@ -10,5 +10,6 @@ namespace SwaggerOdata.Persistence.Repositories
         Task<IEnumerable<T>> GetAll();
         void Add(T obj);
         void SaveChanges();
+        void Delete(object id);
     }
 }

@@ -35,5 +35,12 @@ namespace SwaggerOdata.Persistence.Repositories
         {
             //throw new NotImplementedException();
         }
+
+        public void Delete(object id)
+        {
+            var del = _context.Set<T>().Find(id);
+            _context.Set<T>().Remove(del);
+            _context.SaveChanges();
+        }
     }
 }

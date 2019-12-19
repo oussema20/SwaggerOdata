@@ -41,5 +41,16 @@ namespace SwaggerOdata.Controllers
             _ninja.Add(obj);
             return Ok(obj);
         }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            _ninja.Delete(id);
+                return Ok("done");
+            }
+        }
     }
-}
+

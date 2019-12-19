@@ -23,6 +23,12 @@ namespace SwaggerOdata.Services
             _genericRepo.SaveChanges();
         }
 
+        public void Delete(object id)
+        {
+            _genericRepo.Delete(id);
+            _genericRepo.SaveChanges();
+        }
+
         public async Task<IEnumerable<T>> GetAll()
         {
             var serv = await _genericRepo.GetAll();
