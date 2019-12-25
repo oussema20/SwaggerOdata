@@ -8,11 +8,11 @@ namespace SwaggerOdata.Services
 {
     public class GenericService<T> : IGenericService<T> where T : class
     {
-    
+
         private readonly IGenericRepository<T> _genericRepo;
 
-       
-            public GenericService(IGenericRepository<T> genericRepo)
+
+        public GenericService(IGenericRepository<T> genericRepo)
         {
             _genericRepo = genericRepo;
         }
@@ -35,5 +35,20 @@ namespace SwaggerOdata.Services
             return serv;
 
         }
-    }
+
+        public T GetById(object id)
+        {
+            var solution = _genericRepo.GetById(id);
+            return solution;
+
+        }
+
+    //public void Update(T obj)
+    //{
+    //    _genericRepo.Update(obj);
+    //    _genericRepo.SaveChanges();
+
+    //}
+
+}
 }

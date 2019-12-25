@@ -42,5 +42,18 @@ namespace SwaggerOdata.Persistence.Repositories
             _context.Set<T>().Remove(del);
             _context.SaveChanges();
         }
+
+        public T GetById(object id)
+        {
+            return _context.Set<T>().Find(id);
+
+        }
+
+        //public void Update(T obj)
+        //{
+        //    _context.Set<T>().Attach(obj);
+        //    _context.Entry(obj).State = EntityState.Modified;
+        //}
     }
 }
+ 

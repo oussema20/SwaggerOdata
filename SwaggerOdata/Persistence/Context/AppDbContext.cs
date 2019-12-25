@@ -14,5 +14,6 @@ namespace SwaggerOdata.Persistence.Context
 
         }
         public DbSet<Ninja> Ninjas { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

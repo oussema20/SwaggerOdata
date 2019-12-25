@@ -15,6 +15,8 @@
   <ItemGroup>
     <Compile Include="Migrations\20191213133643_FirsMigration.cs" />
     <Compile Include="Migrations\20191213133643_FirsMigration.Designer.cs" />
+    <Compile Include="Migrations\20191223135132_Add_User_Table.cs" />
+    <Compile Include="Migrations\20191223135132_Add_User_Table.Designer.cs" />
     <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
   </ItemGroup>
 
@@ -23,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.OData.Versioning.ApiExplorer" Version="4.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />

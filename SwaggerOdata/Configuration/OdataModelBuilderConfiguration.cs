@@ -13,6 +13,9 @@ namespace SwaggerOdata.Configuration
         public void Apply(ODataModelBuilder builder, ApiVersion apiVersion)
         {
             builder.EntitySet<Entities.Ninja>("Ninja");
+            builder.EntitySet<Entities.User>("User");
+            var function = builder.Function("GetById").ReturnsFromEntitySet<Entities.Ninja>("GetById");
+            function.Parameter<int>("id");
         }
 
     }

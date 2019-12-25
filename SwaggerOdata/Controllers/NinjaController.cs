@@ -19,10 +19,10 @@ namespace SwaggerOdata.Controllers
     {
         private IGenericService<Ninja> _ninja;
 
-        
+
         public NinjaController(IGenericService<SwaggerOdata.Entities.Ninja> ninja)
-        { 
-             _ninja= ninja ;
+        {
+            _ninja = ninja;
         }
         //[HttpGet]
         [ODataRoute()]
@@ -34,6 +34,10 @@ namespace SwaggerOdata.Controllers
             var result = await _ninja.GetAll();
             return result;
         }
+        [ODataRoute()]
+        [EnableQuery]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(List<Entities.Ninja>), StatusCodes.Status201Created)]
         public IActionResult Post([FromBody] Ninja obj)
         {
             if (!ModelState.IsValid)
@@ -41,7 +45,10 @@ namespace SwaggerOdata.Controllers
             _ninja.Add(obj);
             return Ok(obj);
         }
-        [HttpDelete("{id}")]
+        [ODataRoute()]
+        [EnableQuery]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(List<Entities.Ninja>), StatusCodes.Status201Created)]
         public IActionResult Delete(int id)
         {
             if (!ModelState.IsValid)
@@ -49,8 +56,47 @@ namespace SwaggerOdata.Controllers
                 return BadRequest();
             }
             _ninja.Delete(id);
-                return Ok("done");
-            }
+            return Ok("done");
         }
-    }
 
+        #region code that will cause malek throwing from a window
+        //[Produces("application/json")]
+        //[ProducesResponseType(typeof(Entities.Ninja), StatusCodes.Status201Created)]
+        //[EnableQuery(MaxExpansionDepth = 5)]
+        //[ODataRoute()]
+
+        //public IActionResult GetById([FromODataUri] int id)
+        //{
+        //    Ninja nin = _ninja.GetById(id);
+        //    return Ok(nin);
+        //}
+        #endregion
+
+        [EnableQuery(MaxExpansionDepth = 5)]
+        public IActionResult Get([FromODataUri] int key)
+        {
+            Ninja nin = _ninja.GetById(key);
+            return Ok(nin);
+        }
+
+
+
+        //[HttpPatch("{id}")]
+        //[ODataRoute()]
+        //[EnableQuery]
+        //[Produces("application/json")]
+        //[ProducesResponseType(typeof(List<Entities.Ninja>), StatusCodes.Status201Created)]
+        //public IActionResult PATCH([FromBody] Ninja obj)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return null;
+        //    }
+        //    else
+        //    {
+        //        _ninja.Update(obj);
+        //        return Ok(obj);
+        //    }
+        //}
+    }
+}
