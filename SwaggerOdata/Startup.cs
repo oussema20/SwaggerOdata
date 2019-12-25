@@ -16,6 +16,7 @@ using Microsoft.Extensions.Options;
 using SwaggerOdata.Entities;
 using SwaggerOdata.Persistence.Context;
 using SwaggerOdata.Persistence.Repositories;
+using SwaggerOdata.Persistence.Repositories.Ninja;
 using SwaggerOdata.Services;
 using SwaggerOdata.Services.Ninja;
 using SwaggerOdata.Versionning;
@@ -47,9 +48,10 @@ namespace SwaggerOdata
                     Configuration.GetConnectionString("DefaultConnection"));
             });
             
-            services.AddScoped<NinjaService, NinjaService>();
+            services.AddScoped<INinjaService, NinjaService>();
             services.AddScoped<IGenericService<Ninja>, GenericService<Ninja>>();
             services.AddScoped<IGenericRepository<Ninja>, GenericRepository<Ninja>>();
+            services.AddScoped<NinjaRepository, NinjaRepository>();
 
 
             var defaultApiVersion = new ApiVersion(1, 0);
