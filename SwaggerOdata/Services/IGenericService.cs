@@ -11,6 +11,6 @@ namespace SwaggerOdata.Services
         void Add(T obj);
         void Delete(object id);
         T GetById(object id);
-        ////void Update( T obj);
+        void Update(T obj);
     }
 }

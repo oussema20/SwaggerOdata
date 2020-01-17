@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNetCore.Mvc;
+using SwaggerOdata.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,12 @@ namespace SwaggerOdata.Configuration
         {
             builder.EntitySet<Entities.Ninja>("Ninja");
             builder.EntitySet<Entities.User>("User");
-            var function = builder.Function("GetById").ReturnsFromEntitySet<Entities.Ninja>("GetById");
-            function.Parameter<int>("id");
+            var function = builder.Function("GetByClan").ReturnsCollectionFromEntitySet<Ninja>("Ninja");
+            function.Parameter<string>("clan");
+
+            var function2 = builder.Function("GetByClanAndName").ReturnsCollectionFromEntitySet<Ninja>("Ninja");
+            function2.Parameter<string>("clan");
+            function2.Parameter<string>("name");
         }
 
     }

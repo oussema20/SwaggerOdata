@@ -12,7 +12,7 @@ namespace SwaggerOdata.Persistence.Repositories
         void SaveChanges();
         void Delete(object id);
        T GetById(object id);
-        //void Update(T obj);
-       
+        void Update(T obj);
+
     }  
 }

@@ -12,7 +12,7 @@ namespace SwaggerOdata.Persistence.Repositories
         private AppDbContext _context;
         public GenericRepository()
         {
-            //table = _context.Set<T>();
+            // table = _context.Set<T>();
         }
         public GenericRepository(AppDbContext context)
         {
@@ -49,11 +49,11 @@ namespace SwaggerOdata.Persistence.Repositories
 
         }
 
-        //public void Update(T obj)
-        //{
-        //    _context.Set<T>().Attach(obj);
-        //    _context.Entry(obj).State = EntityState.Modified;
-        //}
+        public void Update(T obj){
+
+            _context.Set<T>().Update(obj);
+            _context.SaveChanges();
+        }
     }
 }
  

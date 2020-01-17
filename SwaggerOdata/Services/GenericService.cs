@@ -43,12 +43,12 @@ namespace SwaggerOdata.Services
 
         }
 
-    //public void Update(T obj)
-    //{
-    //    _genericRepo.Update(obj);
-    //    _genericRepo.SaveChanges();
+        public void Update(T obj)
+        {            
+            _genericRepo.Update(obj);
+            _genericRepo.SaveChanges();
 
-    //}
+        }
 
-}
+    }
 }
